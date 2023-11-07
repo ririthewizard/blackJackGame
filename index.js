@@ -1,4 +1,4 @@
-let input = require('readline-sync');
+// let input = require('readline-sync');
 
 //Creating two cards that hold a random number between 2 and 11
 let firstCard = Math.floor(Math.random() * (11 - 2) + 2);
@@ -12,13 +12,14 @@ let message = "";
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
 
-// function blackjackCalc() {
-//     let hitOrStand = input.question("Would you like to hit or stand?");
+// let hitOrStand = input.question("Would you like to hit or stand?");
+
+// function startGame() {
 //     // let nextSum = 0;
 //     if (sum <= 20) {
 //         console.log("Your hand total is " + (sum + nextSum));
 //         hitOrStand;
-//         if (hitOrStand.toLowerCase() === "Hit"){
+//         if (hitOrStand.toLowerCase() === "hit"){
 //             sum = sum + nextCard;
 //             blackjackCalc;
 //         }
@@ -29,18 +30,24 @@ let hasBlackJack = false;
 //     } else {
 //         console.log("Bust!");
 //     }
+// } 
+let messageEl = document.getElementById("message-el");
+// console.log(messageEl);
 
-if (sum <= 20) {
-    message = "Do you want to draw a new card? 🙂";
-} else if (sum === 21) {
-    message = "Woohoo! You've got Blackjack! 🎉";
-} else {
-    message = "You're out of the game!";
-    isAlive = false;
+function startGame() {
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?";
+    } else if (sum === 21) {
+        message = "Woohoo! You've got Blackjack";
+    } else {
+        message = "You're out of the game!";
+        isAlive = false;
+    }
+    console.log(message);
 }
 
 console.log(sum);
-console.log(message);
+
 console.log(isAlive);
 
 
