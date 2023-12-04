@@ -11,30 +11,19 @@ let message = "";
 
 let sum = firstCard + secondCard;
 let hasBlackJack = false;
-
-// let hitOrStand = input.question("Would you like to hit or stand?");
-
-// function startGame() {
-//     // let nextSum = 0;
-//     if (sum <= 20) {
-//         console.log("Your hand total is " + (sum + nextSum));
-//         hitOrStand;
-//         if (hitOrStand.toLowerCase() === "hit"){
-//             sum = sum + nextCard;
-//             blackjackCalc;
-//         }
-//     } else if (sum === 21) {
-//         console.log("Nice! Blackjack! 🎉");
-//         hasBlackJack = true;
-//         return;
-//     } else {
-//         console.log("Bust!");
-//     }
-// } 
 let messageEl = document.getElementById("message-el");
+let sumEl = document.querySelector(".sum-el");
+let cardsEl = document.querySelector("#cards-el");
+let newCard = document.querySelector("#new-card-el");
 // console.log(messageEl);
 
-function startGame() {
+function startGame(){
+    renderGame();
+}
+
+function renderGame() {
+    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard;
+    sumEl.textContent = "Sum: " + sum;
     if (sum <= 20) {
         message = "Do you want to draw a new card?";
     } else if (sum === 21) {
@@ -43,12 +32,20 @@ function startGame() {
         message = "You're out of the game!";
         isAlive = false;
     }
-    console.log(message);
+    messageEl.textContent = message;
+    // console.log(message);
 }
 
-console.log(sum);
+function newCard() {
+    // console.log("Drawing a new card");
+    // newCard.textContent = "New card: " + nextCard;
+    sum += nextCard;
+    startGame();
+}
 
-console.log(isAlive);
+// console.log(sum);
+
+// console.log(isAlive);
 
 
 
